@@ -18,7 +18,19 @@
     }
     .logo { color: #FF6A00; font-size: 11px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 40px; }
     h1 { color: #FF6A00; font-size: 20px; letter-spacing: 2px; margin-bottom: 8px; }
-    .date { color: #555; font-size: 11px; letter-spacing: 2px; margin-bottom: 40px; }
+    .date { color: #555; font-size: 11px; letter-spacing: 2px; margin-bottom: 8px; }
+    .beta-badge {
+      display: inline-block;
+      border: 1px solid rgba(255,106,0,0.3);
+      background: rgba(255,106,0,0.06);
+      color: #FF6A00;
+      font-size: 9px;
+      letter-spacing: 3px;
+      padding: 4px 10px;
+      border-radius: 3px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
     h2 { color: #e8d5c4; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin: 32px 0 12px; border-left: 2px solid #FF6A00; padding-left: 12px; }
     p { color: #888; margin-bottom: 12px; }
     ul { color: #888; padding-left: 20px; margin-bottom: 12px; }
@@ -26,6 +38,14 @@
     .highlight { color: #c8b8a8; }
     .warning { color: #FF6A00; }
     .good { color: #22c55e; }
+    .beta-box {
+      border: 1px solid rgba(255,106,0,0.2);
+      background: rgba(255,106,0,0.04);
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .beta-box p { color: #888; margin: 0; }
     hr { border: none; border-top: 1px solid #1a1a1a; margin: 32px 0; }
     a { color: #FF6A00; text-decoration: none; }
     .footer { margin-top: 60px; color: #333; font-size: 11px; letter-spacing: 2px; }
@@ -36,7 +56,12 @@
 <div class="logo">🔥 ember</div>
 
 <h1>Privacy Policy</h1>
-<div class="date">Effective date: 16 May 2026 · Version 1.0</div>
+<div class="date">Effective date: 17 May 2026 · Version 1.1</div>
+<div class="beta-badge">· beta ·</div>
+
+<div class="beta-box">
+  <p>Ember is currently in <span class="highlight">beta</span>. During this period, service availability may be limited, features may change without notice, and registration may be temporarily restricted. This Privacy Policy applies to all versions of the app including beta releases.</p>
+</div>
 
 <p>This Privacy Policy explains how <span class="highlight">Ember Project</span> ("we", "us", "our") collects, uses, and protects information when you use the Ember mobile application ("the App").</p>
 
@@ -56,7 +81,7 @@
 
 <h2>2.1 Data stored on our server</h2>
 <ul>
-  <li><span class="highlight">Username</span> — encrypted with AES-256-CBC. We cannot read it without the encryption key.</li>
+  <li><span class="highlight">Username</span> — encrypted with AES-256-GCM. We store an encrypted version of your username. We are technically unable to read it without the encryption key, and we do not associate it with any real-world identity.</li>
   <li><span class="highlight">Password</span> — stored as a bcrypt hash (cost 12). We cannot recover it.</li>
   <li><span class="highlight">Safety key hash</span> — SHA-256 hash. We cannot recover the original key.</li>
   <li><span class="highlight">Public encryption key</span> — visible by design, used to encrypt messages sent to you.</li>
@@ -69,7 +94,7 @@
 <h2>2.2 Data in server logs</h2>
 <p>Our server (Hetzner, Helsinki, Finland) temporarily logs:</p>
 <ul>
-  <li><span class="highlight">IP address</span> — recorded for authentication endpoints (/auth/login, /auth/register, /auth/refresh) only.</li>
+  <li><span class="highlight">IP address</span> — recorded for authentication endpoints only (/auth/login, /auth/register, /auth/refresh).</li>
   <li><span class="highlight">Timestamp</span> — of each request.</li>
   <li><span class="highlight">Endpoint accessed</span> — which API endpoint was called.</li>
 </ul>
@@ -81,6 +106,8 @@
   <li><span class="highlight">Expo Push Service</span> (expo.dev) — receives your push token and an encrypted, opaque payload. Cannot read message content.</li>
   <li><span class="highlight">Google Firebase Cloud Messaging</span> (FCM) — delivers push notifications on Android. Receives push token and encrypted payload only.</li>
   <li><span class="highlight">Hetzner Cloud</span> — our server infrastructure provider in Helsinki, Finland (EU).</li>
+  <li><span class="highlight">Google Play Store</span> (if downloaded via Play Store) — Google may associate your download with your Google account, according to Google's own privacy policy.</li>
+  <li><span class="highlight">GitHub</span> (if downloaded via direct APK) — GitHub/Microsoft logs your IP address at the time of download. We recommend using a VPN to protect your IP address during download.</li>
 </ul>
 
 <h2>2.4 Data stored locally on your device</h2>
@@ -89,6 +116,7 @@
   <li>Your username, session tokens, device ID.</li>
   <li>Pending messages — stored temporarily until read, then deleted.</li>
   <li>Contacts — stored locally only, never sent to the server.</li>
+  <li>Achievements (ash count, streak, ghost count) — stored locally only, never sent to the server.</li>
 </ul>
 
 <hr>
@@ -153,24 +181,38 @@
   <li>End-to-end encryption (Curve25519 + XSalsa20-Poly1305)</li>
   <li>Sealed Sender protocol</li>
   <li>bcrypt password hashing (cost factor 12)</li>
-  <li>AES-256-CBC username encryption</li>
+  <li>AES-256-GCM username encryption</li>
   <li>Rate limiting on all endpoints</li>
   <li>Account locked to a single device</li>
+  <li>Screenshot protection enabled globally</li>
 </ul>
 
 <hr>
 
-<h2>9. Children</h2>
+<h2>9. Beta Service Notice</h2>
+<div class="beta-box">
+  <p>Ember is currently in beta. During this period:</p>
+  <ul style="margin-top:8px;padding-left:16px">
+    <li style="margin-bottom:4px">Service availability may be limited or interrupted without notice.</li>
+    <li style="margin-bottom:4px">Registration may be temporarily restricted to manage server capacity.</li>
+    <li style="margin-bottom:4px">Features may change, be added, or removed.</li>
+    <li style="margin-bottom:4px">We do not guarantee data persistence during major beta updates.</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>10. Children</h2>
 <p>Ember is not intended for users under <span class="highlight">16 years of age</span>. We do not knowingly collect data from minors. If you believe a minor has created an account, contact us immediately.</p>
 
 <hr>
 
-<h2>10. Changes to This Policy</h2>
+<h2>11. Changes to This Policy</h2>
 <p>We may update this Privacy Policy. We will notify users through the app when significant changes occur. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
 
 <hr>
 
-<h2>11. Contact</h2>
+<h2>12. Contact</h2>
 <p>For privacy-related inquiries, data subject requests, or abuse reports:</p>
 <p><a href="mailto:emberproject.app@gmail.com">emberproject.app@gmail.com</a></p>
 

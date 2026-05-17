@@ -18,7 +18,19 @@
     }
     .logo { color: #FF6A00; font-size: 11px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 40px; }
     h1 { color: #FF6A00; font-size: 20px; letter-spacing: 2px; margin-bottom: 8px; }
-    .date { color: #555; font-size: 11px; letter-spacing: 2px; margin-bottom: 40px; }
+    .date { color: #555; font-size: 11px; letter-spacing: 2px; margin-bottom: 8px; }
+    .beta-badge {
+      display: inline-block;
+      border: 1px solid rgba(255,106,0,0.3);
+      background: rgba(255,106,0,0.06);
+      color: #FF6A00;
+      font-size: 9px;
+      letter-spacing: 3px;
+      padding: 4px 10px;
+      border-radius: 3px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
     h2 { color: #e8d5c4; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin: 32px 0 12px; border-left: 2px solid #FF6A00; padding-left: 12px; }
     p { color: #888; margin-bottom: 12px; }
     ul { color: #888; padding-left: 20px; margin-bottom: 12px; }
@@ -36,6 +48,14 @@
       border-radius: 4px;
       margin: 20px 0;
     }
+    .beta-box {
+      border: 1px solid rgba(255,106,0,0.2);
+      background: rgba(255,106,0,0.04);
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .beta-box p { color: #888; margin: 0; }
     .footer { margin-top: 60px; color: #333; font-size: 11px; letter-spacing: 2px; }
   </style>
 </head>
@@ -44,7 +64,8 @@
 <div class="logo">🔥 ember</div>
 
 <h1>Terms of Use</h1>
-<div class="date">Effective date: 16 May 2026 · Version 1.0</div>
+<div class="date">Effective date: 17 May 2026 · Version 1.1</div>
+<div class="beta-badge">· beta ·</div>
 
 <p>These Terms of Use ("Terms") govern your access to and use of the Ember mobile application ("the App"), operated by <span class="highlight">Ember Project</span> ("we", "us", "our"), based in Romania, European Union.</p>
 
@@ -52,7 +73,21 @@
 
 <hr>
 
-<h2>1. Eligibility</h2>
+<h2>1. Beta Service</h2>
+<div class="beta-box">
+  <p>Ember is currently in <span class="highlight">beta</span>. By using Ember during this period, you acknowledge and accept that:</p>
+  <ul style="margin-top:8px;padding-left:16px">
+    <li style="margin-bottom:4px">The service is provided as-is, without uptime or availability guarantees.</li>
+    <li style="margin-bottom:4px">Registration may be temporarily limited to manage server capacity. If registration is unavailable, try again later.</li>
+    <li style="margin-bottom:4px">Features may change, be added, or removed without notice.</li>
+    <li style="margin-bottom:4px">We do not guarantee data persistence during major beta updates.</li>
+    <li style="margin-bottom:4px">The beta period may end at any time, transitioning to a stable release.</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>2. Eligibility</h2>
 <ul>
   <li>You must be at least <span class="highlight">16 years old</span> to use Ember.</li>
   <li>Ember is available to residents of the <span class="highlight">European Economic Area (EEA)</span> only.</li>
@@ -62,7 +97,7 @@
 
 <hr>
 
-<h2>2. Account</h2>
+<h2>3. Account</h2>
 <ul>
   <li>Your account is linked to a single device. You cannot transfer it to another device.</li>
   <li>You are responsible for keeping your username, password, and safety key secure.</li>
@@ -73,7 +108,7 @@
 
 <hr>
 
-<h2>3. Acceptable Use</h2>
+<h2>4. Acceptable Use</h2>
 <p>You agree to use Ember only for lawful purposes and in accordance with these Terms.</p>
 
 <div class="disclaimer">
@@ -97,7 +132,7 @@
 
 <hr>
 
-<h2>4. Our Technical Limitations</h2>
+<h2>5. Our Technical Limitations</h2>
 <p>We want to be transparent about what we can and cannot do:</p>
 <ul>
   <li class="good">✓ We cannot read your messages — they are end-to-end encrypted.</li>
@@ -109,45 +144,57 @@
 
 <hr>
 
-<h2>5. Reporting Abuse</h2>
+<h2>6. Reporting Abuse</h2>
 <p>If you witness or experience abuse on Ember, report it immediately:</p>
 <ul>
   <li><span class="highlight">Email:</span> <a href="mailto:emberproject.app@gmail.com">emberproject.app@gmail.com</a></li>
-  <li><span class="highlight">In-app:</span> Account & Privacy → Report Abuse</li>
+  <li><span class="highlight">In-app:</span> Account & Privacy → Report a user</li>
 </ul>
-<p>Include the username of the offender and a description of the abuse. We will review all reports and take appropriate action, which may include account suspension or termination.</p>
+<p>Reports are anonymous. We cannot provide individual responses, but all reports are reviewed and appropriate action will be taken, which may include account suspension or termination.</p>
 <p>We reserve the right to cooperate with law enforcement authorities when required by law or when we believe there is a risk of harm to individuals.</p>
 
 <hr>
 
-<h2>6. Intellectual Property</h2>
+<h2>7. Distribution</h2>
+<p>Ember is available via two channels:</p>
+<ul>
+  <li><span class="highlight">Google Play Store</span> — Google may associate your download with your Google account per their own privacy policy.</li>
+  <li><span class="highlight">Direct APK (GitHub Releases)</span> — GitHub/Microsoft logs your IP address at download. We recommend using a VPN to protect your IP address during download.</li>
+</ul>
+<p>Once installed, neither distribution channel has access to your in-app activity.</p>
+
+<hr>
+
+<h2>8. Intellectual Property</h2>
 <p>The Ember application, its design, and its underlying technology are the property of Ember Project. You may not copy, modify, distribute, or reverse engineer the App without explicit written permission.</p>
 
 <hr>
 
-<h2>7. Disclaimer of Warranties</h2>
+<h2>9. Disclaimer of Warranties</h2>
 <p>Ember is provided "as is" without warranties of any kind, express or implied. We do not guarantee:</p>
 <ul>
   <li>Uninterrupted or error-free operation of the App.</li>
   <li>That the App will meet your specific requirements.</li>
   <li>The security of data transmitted over the internet beyond our technical measures.</li>
+  <li>Service availability during the beta period.</li>
 </ul>
 
 <hr>
 
-<h2>8. Limitation of Liability</h2>
+<h2>10. Limitation of Liability</h2>
 <p>To the maximum extent permitted by applicable law, Ember Project shall not be liable for:</p>
 <ul>
   <li>Any indirect, incidental, or consequential damages arising from your use of the App.</li>
   <li>Loss of data, including messages, contacts, or account credentials.</li>
   <li>Content transmitted by users through the App.</li>
+  <li>Service interruptions during the beta period.</li>
   <li>Actions taken by third parties, including push notification service providers.</li>
 </ul>
 <p>Our total liability shall not exceed the amount paid by you for the App in the 12 months preceding the claim. As Ember is a free application, this amount is zero.</p>
 
 <hr>
 
-<h2>9. Account Termination</h2>
+<h2>11. Account Termination</h2>
 <p>We reserve the right to suspend or terminate your account without notice if:</p>
 <ul>
   <li>You violate these Terms of Use.</li>
@@ -158,18 +205,18 @@
 
 <hr>
 
-<h2>10. Governing Law and Jurisdiction</h2>
+<h2>12. Governing Law and Jurisdiction</h2>
 <p>These Terms are governed by the laws of <span class="highlight">Romania</span> and the European Union, including GDPR and applicable EU consumer protection regulations.</p>
 <p>Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of Romania, without prejudice to your rights as a consumer under EU law.</p>
 
 <hr>
 
-<h2>11. Changes to These Terms</h2>
-<p>We may update these Terms at any time. We will notify users through the App when significant changes occur. Continued use of the App after changes constitutes acceptance of the updated Terms.</p>
+<h2>13. Changes to These Terms</h2>
+<p>We may update these Terms at any time. We will notify users through the app when significant changes occur. Continued use of the app after changes constitutes acceptance of the updated Terms.</p>
 
 <hr>
 
-<h2>12. Contact</h2>
+<h2>14. Contact</h2>
 <p>For questions, concerns, or abuse reports:</p>
 <p><a href="mailto:emberproject.app@gmail.com">emberproject.app@gmail.com</a></p>
 
