@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ember — Download</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0a;
+      color: #c8b8a8;
+      font-family: 'Courier Prime', 'Courier New', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .logo { color: #FF6A00; font-size: 11px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 12px; }
+    .tagline { color: #333; font-size: 10px; letter-spacing: 4px; margin-bottom: 60px; }
+
+    .cards {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 48px;
+      max-width: 760px;
+      width: 100%;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 280px;
+      max-width: 340px;
+      border: 1px solid rgba(255,106,0,0.12);
+      border-radius: 8px;
+      padding: 32px 28px;
+      background: rgba(255,106,0,0.02);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card.recommended {
+      border-color: rgba(255,106,0,0.35);
+      background: rgba(255,106,0,0.04);
+    }
+
+    .card-badge {
+      font-size: 8px;
+      letter-spacing: 3px;
+      color: #FF6A00;
+      text-transform: uppercase;
+      margin-bottom: -8px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      color: #e8d5c4;
+      letter-spacing: 2px;
+    }
+
+    .card-sub {
+      font-size: 9px;
+      color: #444;
+      letter-spacing: 2px;
+      line-height: 1.8;
+    }
+
+    .card-features {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .feat {
+      font-size: 9px;
+      color: #555;
+      letter-spacing: 1px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .feat.good { color: #22c55e; }
+    .feat.warn { color: #888; }
+    .feat.bad  { color: #ef4444; }
+
+    .btn {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 4px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(255,106,0,0.3);
+      color: #FF6A00;
+      background: rgba(255,106,0,0.06);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      border-color: #FF6A00;
+      background: rgba(255,106,0,0.12);
+    }
+
+    .btn.disabled {
+      color: #333;
+      border-color: #1a1a1a;
+      background: transparent;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .coming-soon {
+      font-size: 8px;
+      color: #333;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-top: -8px;
+    }
+
+    .warning-box {
+      max-width: 680px;
+      border: 1px solid rgba(255,106,0,0.1);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+
+    .warning-title {
+      font-size: 9px;
+      color: #FF6A00;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .warning-text {
+      font-size: 9px;
+      color: #444;
+      line-height: 1.9;
+      letter-spacing: 1px;
+    }
+
+    .steps {
+      max-width: 680px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .steps-title {
+      font-size: 9px;
+      color: #555;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 12px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-size: 11px;
+      color: #FF6A00;
+      width: 20px;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: 9px;
+      color: #444;
+      letter-spacing: 1px;
+      line-height: 1.8;
+    }
+
+    .footer {
+      color: #222;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .footer a { color: #333; text-decoration: none; }
+    .footer a:hover { color: #FF6A00; }
+
+    hr { border: none; border-top: 1px solid #111; margin: 8px 0; width: 100%; max-width: 680px; }
+  </style>
+</head>
+<body>
+
+  <div class="logo">🔥 ember</div>
+  <div class="tagline">messages that burn</div>
+
+  <!-- Download cards -->
+  <div class="cards">
+
+    <!-- Google Play -->
+    <div class="card">
+      <div class="card-title">Google Play</div>
+      <div class="card-sub">Automatic updates · Easy install</div>
+      <div class="card-features">
+        <div class="feat good">✓ automatic updates</div>
+        <div class="feat good">✓ verified installation</div>
+        <div class="feat warn">· Google associates download with your account</div>
+        <div class="feat warn">· Google sees your IP and timestamp</div>
+      </div>
+      <a href="#" class="btn disabled">coming soon</a>
+      <div class="coming-soon">available on Google Play soon</div>
+    </div>
+
+    <!-- APK Direct -->
+    <div class="card recommended">
+      <div class="card-badge">· more private ·</div>
+      <div class="card-title">Direct APK</div>
+      <div class="card-sub">Android only · Manual install required</div>
+      <div class="card-features">
+        <div class="feat good">✓ no Google account required</div>
+        <div class="feat good">✓ no association with your identity</div>
+        <div class="feat warn">· GitHub/Microsoft sees your IP at download</div>
+        <div class="feat warn">· use a VPN for maximum anonymity</div>
+        <div class="feat warn">· requires enabling unknown sources</div>
+      </div>
+      <a href="https://github.com/Ember-apk/Ember/releases/latest/download/app-release.apk" class="btn">download apk v1.0</a>
+    </div>
+
+  </div>
+
+  <!-- Privacy warning -->
+  <div class="warning-box">
+    <div class="warning-title">⚠ privacy notice</div>
+    <div class="warning-text">
+      Both distribution channels expose your IP address at download time — Google Play to Google, direct APK to GitHub/Microsoft.<br><br>
+      For maximum anonymity, use a VPN when downloading.<br><br>
+      Once installed, Ember does not share your identity with us or any third party. Your account is not linked to your download method.
+    </div>
+  </div>
+
+  <!-- Installation steps -->
+  <div class="steps">
+    <div class="steps-title">how to install the apk</div>
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-text">Download the APK file to your Android device.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-text">Go to Settings → Security → Install unknown apps → enable for your browser or file manager.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-text">Open the downloaded APK file and tap Install.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-text">Open Ember and create your account. No phone number required.</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="footer" style="margin-top:24px">
+    <p>Ember Project · Romania · 2026</p>
+    <p style="margin-top:8px">
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms of Use</a> ·
+      <a href="index.html">Home</a>
+    </p>
+  </div>
+
+</body>
+</html>
