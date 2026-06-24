@@ -56,7 +56,7 @@
 <div class="logo">🔥 ember</div>
 
 <h1>Privacy Policy</h1>
-<div class="date">Effective date: 17 May 2026 · Version 1.1</div>
+<div class="date">Effective date: 03 June 2026 · Version 1.2</div>
 <div class="beta-badge">· beta ·</div>
 
 <div class="beta-box">
@@ -81,7 +81,7 @@
 
 <h2>2.1 Data stored on our server</h2>
 <ul>
-  <li><span class="highlight">Username</span> — encrypted with AES-256-GCM. We store an encrypted version of your username. We are technically unable to read it without the encryption key, and we do not associate it with any real-world identity.</li>
+  <li><span class="highlight">Username</span> — encrypted with AES-256-GCM. We have the technical ability to decrypt usernames using the server's encryption key, but we do not do so unless required by law, court order, or to investigate credible abuse reports. We do not associate usernames with any real-world identity.</li>
   <li><span class="highlight">Password</span> — stored as a bcrypt hash (cost 12). We cannot recover it.</li>
   <li><span class="highlight">Safety key hash</span> — SHA-256 hash. We cannot recover the original key.</li>
   <li><span class="highlight">Public encryption key</span> — visible by design, used to encrypt messages sent to you.</li>
@@ -117,6 +117,7 @@
   <li>Pending messages — stored temporarily until read, then deleted.</li>
   <li>Contacts — stored locally only, never sent to the server.</li>
   <li>Achievements (ash count, streak, ghost count) — stored locally only, never sent to the server.</li>
+  <li>Your preferences — theme, auto-lock duration, persistent session flag, biometric settings. Stored locally only.</li>
 </ul>
 
 <hr>
@@ -185,6 +186,7 @@
   <li>Rate limiting on all endpoints</li>
   <li>Account locked to a single device</li>
   <li>Screenshot protection enabled globally</li>
+  <li>Optional persistent session — if enabled, your session token remains valid for up to 30 days instead of 2 hours. This is an opt-in feature you control in Settings.</li>
 </ul>
 
 <hr>
