@@ -1,285 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ember — Download</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: #0a0a0a;
-      color: #c8b8a8;
-      font-family: 'Courier Prime', 'Courier New', monospace;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    .logo { color: #FF6A00; font-size: 11px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 12px; }
-    .tagline { color: #333; font-size: 10px; letter-spacing: 4px; margin-bottom: 60px; }
-
-    .cards {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 48px;
-      max-width: 760px;
-      width: 100%;
-    }
-
-    .card {
-      flex: 1;
-      min-width: 280px;
-      max-width: 340px;
-      border: 1px solid rgba(255,106,0,0.12);
-      border-radius: 8px;
-      padding: 32px 28px;
-      background: rgba(255,106,0,0.02);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .card.recommended {
-      border-color: rgba(255,106,0,0.35);
-      background: rgba(255,106,0,0.04);
-    }
-
-    .card-badge {
-      font-size: 8px;
-      letter-spacing: 3px;
-      color: #FF6A00;
-      text-transform: uppercase;
-      margin-bottom: -8px;
-    }
-
-    .card-title {
-      font-size: 16px;
-      color: #e8d5c4;
-      letter-spacing: 2px;
-    }
-
-    .card-sub {
-      font-size: 9px;
-      color: #444;
-      letter-spacing: 2px;
-      line-height: 1.8;
-    }
-
-    .card-features {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      flex: 1;
-    }
-
-    .feat {
-      font-size: 9px;
-      color: #555;
-      letter-spacing: 1px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .feat.good { color: #22c55e; }
-    .feat.warn { color: #888; }
-    .feat.bad  { color: #ef4444; }
-
-    .btn {
-      display: block;
-      text-align: center;
-      padding: 14px;
-      border-radius: 4px;
-      font-family: 'Courier Prime', monospace;
-      font-size: 10px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: 1px solid rgba(255,106,0,0.3);
-      color: #FF6A00;
-      background: rgba(255,106,0,0.06);
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .btn:hover {
-      border-color: #FF6A00;
-      background: rgba(255,106,0,0.12);
-    }
-
-    .btn.disabled {
-      color: #333;
-      border-color: #1a1a1a;
-      background: transparent;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-
-    .coming-soon {
-      font-size: 8px;
-      color: #333;
-      letter-spacing: 2px;
-      text-align: center;
-      margin-top: -8px;
-    }
-
-    .warning-box {
-      max-width: 680px;
-      border: 1px solid rgba(255,106,0,0.1);
-      border-radius: 4px;
-      padding: 20px 24px;
-      margin-bottom: 40px;
-    }
-
-    .warning-title {
-      font-size: 9px;
-      color: #FF6A00;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .warning-text {
-      font-size: 9px;
-      color: #444;
-      line-height: 1.9;
-      letter-spacing: 1px;
-    }
-
-    .steps {
-      max-width: 680px;
-      width: 100%;
-      margin-bottom: 40px;
-    }
-
-    .steps-title {
-      font-size: 9px;
-      color: #555;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .step {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 12px;
-      align-items: flex-start;
-    }
-
-    .step-num {
-      font-size: 11px;
-      color: #FF6A00;
-      width: 20px;
-      flex-shrink: 0;
-    }
-
-    .step-text {
-      font-size: 9px;
-      color: #444;
-      letter-spacing: 1px;
-      line-height: 1.8;
-    }
-
-    .footer {
-      color: #222;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-align: center;
-    }
-
-    .footer a { color: #333; text-decoration: none; }
-    .footer a:hover { color: #FF6A00; }
-
-    hr { border: none; border-top: 1px solid #111; margin: 8px 0; width: 100%; max-width: 680px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember — Messages That Burn</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--orange:#FF6A00;--red:#FF3D00;--gold:#FFB347;--violet:#8B5CF6;--blue:#38bdf8;--magenta:#E040FB;--white:#ffffff;--dim:rgba(255,255,255,0.5);--bg:#03020a;--border:rgba(255,106,0,0.12)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Space Mono',monospace;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:rgba(3,2,10,0.7);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Orbitron';font-size:1rem;font-weight:700;color:var(--orange);letter-spacing:.35em;text-decoration:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--orange)}
+#hero{position:relative;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+#vortex{position:absolute;top:0;left:0;width:100%;height:100%}
+.hero-content{position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.hero-label{font-size:.6rem;letter-spacing:.5em;color:var(--orange);text-transform:uppercase;border:1px solid rgba(255,106,0,.3);padding:.4rem 1.2rem;border-radius:2px;backdrop-filter:blur(4px);background:rgba(3,2,10,.4)}
+.hero-title{font-family:'Orbitron';font-size:clamp(3.5rem,10vw,8rem);font-weight:900;letter-spacing:.15em;line-height:1;background:linear-gradient(135deg,#FF6A00 0%,#FFB347 35%,#E040FB 65%,#8B5CF6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 60px rgba(255,106,0,.5))}
+.hero-tagline{font-size:.75rem;letter-spacing:.4em;color:var(--dim);text-transform:uppercase}
+.hero-cta{display:flex;gap:1rem;margin-top:.8rem;flex-wrap:wrap;justify-content:center}
+.btn-primary{font-family:'Orbitron';font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;text-decoration:none;padding:.9rem 2.2rem;background:linear-gradient(135deg,#FF6A00,#E040FB);color:#fff;border:none;border-radius:2px;cursor:pointer;transition:all .3s;box-shadow:0 0 20px rgba(255,106,0,.3)}
+.btn-primary:hover{box-shadow:0 0 40px rgba(255,106,0,.6),0 0 80px rgba(224,64,251,.3);transform:translateY(-1px)}
+.btn-secondary{font-family:'Orbitron';font-size:.65rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;text-decoration:none;padding:.9rem 2.2rem;background:transparent;color:var(--orange);border:1px solid rgba(255,106,0,.35);border-radius:2px;cursor:pointer;transition:all .2s}
+.btn-secondary:hover{background:rgba(255,106,0,.08);border-color:var(--orange)}
+.scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;z-index:2}
+.scroll-indicator span{font-size:.5rem;letter-spacing:.4em;color:rgba(255,255,255,.2);text-transform:uppercase}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--orange),transparent);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.2}50%{opacity:1}}
+.stats-bar{background:rgba(255,106,0,.03);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 3rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.stat-value{font-family:'Orbitron';font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--orange),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:.58rem;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+.section-wrap{padding:6rem 3rem;max-width:1100px;margin:0 auto}
+.section-eyebrow{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--violet);margin-bottom:.8rem}
+.section-title{font-family:'Orbitron';font-size:clamp(1.5rem,3vw,2.5rem);font-weight:700;letter-spacing:.05em;color:var(--white);margin-bottom:1rem;line-height:1.2}
+.section-body{font-size:.82rem;line-height:1.9;color:var(--dim);max-width:560px;margin-bottom:3rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;border:1px solid var(--border);background:var(--border);margin-top:3rem}
+.feature-card{background:var(--bg);padding:2rem;position:relative;overflow:hidden;transition:background .3s}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--violet),var(--orange),transparent);opacity:0;transition:opacity .3s}
+.feature-card:hover{background:rgba(139,92,246,.04)}
+.feature-card:hover::before{opacity:1}
+.feature-icon{font-size:1.4rem;margin-bottom:1rem;display:block}
+.feature-title{font-family:'Orbitron';font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--white);margin-bottom:.7rem}
+.feature-desc{font-size:.73rem;line-height:1.8;color:var(--dim)}
+.feature-tag{display:inline-block;margin-top:1rem;font-size:.52rem;letter-spacing:.2em;color:var(--violet);text-transform:uppercase;border:1px solid rgba(139,92,246,.25);padding:.2rem .5rem}
+.protocol-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-top:3rem}
+.step{position:relative;padding-left:1.5rem;border-left:1px solid rgba(139,92,246,.3)}
+.step::before{content:attr(data-n);position:absolute;left:-.7rem;top:0;width:1.4rem;height:1.4rem;background:linear-gradient(135deg,var(--orange),var(--violet));color:#fff;font-family:'Orbitron';font-size:.55rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.step-title{font-family:'Orbitron';font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--white);margin-bottom:.6rem}
+.step-desc{font-size:.71rem;line-height:1.8;color:var(--dim)}
+.matrix{margin-top:2rem;border:1px solid var(--border);overflow:hidden}
+.matrix-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border-bottom:1px solid var(--border)}
+.matrix-row:last-child{border-bottom:none}
+.matrix-header .matrix-cell{font-family:'Orbitron';font-size:.52rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);background:rgba(139,92,246,.04)}
+.matrix-cell{padding:.85rem 1.2rem;font-size:.68rem;border-right:1px solid var(--border);display:flex;align-items:center}
+.matrix-cell:last-child{border-right:none}
+.matrix-cell.feature-name{color:var(--white)}
+.matrix-cell.ember-col{color:var(--orange);font-weight:700}
+.matrix-cell.other-col{color:var(--dim)}
+.check{color:var(--orange)}.cross{color:rgba(255,255,255,.15)}.partial{color:var(--gold)}
+#download{position:relative;border-top:1px solid var(--border);text-align:center;padding:7rem 3rem;overflow:hidden}
+.dl-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(139,92,246,.07) 0%,rgba(255,106,0,.05) 40%,transparent 70%);pointer-events:none}
+.dl-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.version-badge{display:inline-block;margin-bottom:2rem;font-size:.58rem;letter-spacing:.3em;color:var(--violet);text-transform:uppercase;border:1px solid rgba(139,92,246,.3);padding:.3rem .9rem}
+.dl-title{font-family:'Orbitron';font-size:clamp(1.8rem,4vw,3.5rem);font-weight:900;letter-spacing:.1em;margin-bottom:1rem;background:linear-gradient(135deg,#FF6A00,#E040FB,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.dl-sub{font-size:.78rem;line-height:1.8;color:var(--dim);margin-bottom:2.5rem}
+.dl-note{margin-top:1.5rem;font-size:.6rem;line-height:1.7;color:rgba(255,255,255,.18)}
+.dl-note a{color:rgba(139,92,246,.6);text-decoration:none}
+.dl-note a:hover{color:var(--violet)}
+footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Orbitron';font-size:.8rem;font-weight:700;color:var(--orange);letter-spacing:.3em}
+.footer-links{display:flex;gap:2rem;list-style:none}
+.footer-links a{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--violet)}
+.footer-copy{font-size:.58rem;color:rgba(255,255,255,.12);letter-spacing:.1em}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:768px){nav{padding:1rem 1.5rem}.nav-links{display:none}.section-wrap{padding:4rem 1.5rem}.stats-bar{gap:2rem;padding:1.5rem}footer{flex-direction:column;text-align:center}}
+</style>
 </head>
 <body>
 
-  <div class="logo">🔥 ember</div>
-  <div class="tagline">messages that burn</div>
+<nav>
+  <a href="#" class="nav-logo">🔥 EMBER</a>
+  <ul class="nav-links">
+    <li><a href="#features">Protocol</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#download">Download</a></li>
+    <li><a href="https://ember-legal.netlify.app/privacy.html" target="_blank">Privacy</a></li>
+  </ul>
+</nav>
 
-  <!-- Download cards -->
-  <div class="cards">
-
-    <!-- Google Play -->
-    <div class="card">
-      <div class="card-title">Google Play</div>
-      <div class="card-sub">Automatic updates · Easy install</div>
-      <div class="card-features">
-        <div class="feat good">✓ automatic updates</div>
-        <div class="feat good">✓ verified installation</div>
-        <div class="feat warn">· Google associates download with your account</div>
-        <div class="feat warn">· Google sees your IP and timestamp</div>
-      </div>
-      <a href="#" class="btn disabled">coming soon</a>
-      <div class="coming-soon">available on Google Play soon</div>
-    </div>
-
-    <!-- APK Direct -->
-    <div class="card recommended">
-      <div class="card-badge">· more private ·</div>
-      <div class="card-title">Direct APK</div>
-      <div class="card-sub">Android only · Manual install required</div>
-      <div class="card-features">
-        <div class="feat good">✓ no Google account required</div>
-        <div class="feat good">✓ no association with your identity</div>
-        <div class="feat warn">· GitHub/Microsoft sees your IP at download</div>
-        <div class="feat warn">· use a VPN for maximum anonymity</div>
-        <div class="feat warn">· requires enabling unknown sources</div>
-      </div>
-      <a href="https://raw.githubusercontent.com/Ember-apk/ember-legal/main/app-arm64-v8a-release.apk" class="btn">download apk v1.0.5</a>
-    </div>
-
+<section id="hero">
+  <canvas id="vortex"></canvas>
+  <div class="hero-content" style="position:absolute;top:5rem;left:50%;transform:translateX(-50%);width:100%;text-align:center;z-index:2;">
+    <h1 class="hero-title">EMBER</h1>
+    <p class="hero-tagline">Messages That Burn</p>
   </div>
-
-  <!-- Privacy warning -->
-  <div class="warning-box">
-    <div class="warning-title">⚠ privacy notice</div>
-    <div class="warning-text">
-      Both distribution channels expose your IP address at download time — Google Play to Google, direct APK to GitHub/Microsoft.<br><br>
-      For maximum anonymity, use a VPN when downloading.<br><br>
-      Once installed, Ember does not share your identity with us or any third party. Your account is not linked to your download method.
-    </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
   </div>
+</section>
 
-  <!-- Installation steps -->
-  <div class="steps">
-    <div class="steps-title">how to install the apk</div>
-    <div class="step">
-      <div class="step-num">01</div>
-      <div class="step-text">Download the APK file to your Android device.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <div class="step-text">Go to Settings → Security → Install unknown apps → enable for your browser or file manager.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <div class="step-text">Open the downloaded APK file and tap Install.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <div class="step-text">Open Ember and create your account. No phone number required.</div>
-    </div>
+<div class="stats-bar">
+  <div class="stat"><span class="stat-value">E2E</span><span class="stat-label">Encrypted</span></div>
+  <div class="stat"><span class="stat-value">0</span><span class="stat-label">Messages stored</span></div>
+  <div class="stat"><span class="stat-value">∅</span><span class="stat-label">Phone required</span></div>
+  <div class="stat"><span class="stat-value">EU</span><span class="stat-label">Server location</span></div>
+  <div class="stat"><span class="stat-value">0</span><span class="stat-label">Identifiers collected</span></div>
+</div>
+
+<div class="section-wrap" id="features">
+  <p class="section-eyebrow reveal">Core Protocol</p>
+  <h2 class="section-title reveal">Built different.<br>By design.</h2>
+  <p class="section-body reveal">Every decision in Ember was made to minimize what the server knows. Not as a feature. As a foundation.</p>
+  <div class="features-grid">
+    <div class="feature-card reveal"><span class="feature-icon">⛓</span><div class="feature-title">Sealed Sender</div><div class="feature-desc">The server routes your message without knowing who sent it. No sender field. No social graph. No metadata linking you to the recipient.</div><span class="feature-tag">Architecture</span></div>
+    <div class="feature-card reveal"><span class="feature-icon">🔑</span><div class="feature-title">No Phone Number</div><div class="feature-desc">Registration requires nothing real — no number, no email, no identity. A username prefix you choose. A random suffix the server generates.</div><span class="feature-tag">Identity</span></div>
+    <div class="feature-card reveal"><span class="feature-icon">🔥</span><div class="feature-title">Messages That Burn</div><div class="feature-desc">Timer starts at reception, not at reading. Your message doesn't wait. When the clock runs out, only ash remains.</div><span class="feature-tag">Ephemeral</span></div>
+    <div class="feature-card reveal"><span class="feature-icon">🎭</span><div class="feature-title">Decoy Password</div><div class="feature-desc">A second password that opens a shadow account — empty, real-looking, indistinguishable. For when unlocking isn't a choice.</div><span class="feature-tag">Duress Protection</span></div>
+    <div class="feature-card reveal"><span class="feature-icon">💥</span><div class="feature-title">Shake to Wipe</div><div class="feature-desc">One shake. Sessions cleared. Messages erased. Biometrics deleted. Notifications dismissed. Your phone, blank and safe, in under a second.</div><span class="feature-tag">Emergency</span></div>
+    <div class="feature-card reveal"><span class="feature-icon">🛡</span><div class="feature-title">Screenshot Blocked</div><div class="feature-desc">Android FLAG_SECURE active globally. No digital capture. No screen recording. No traces in your recent apps thumbnail.</div><span class="feature-tag">OS-Level</span></div>
   </div>
+</div>
 
-  <hr>
+<div class="section-wrap" id="protocol" style="border-top:1px solid var(--border);padding-top:6rem">
+  <p class="section-eyebrow reveal">How It Works</p>
+  <h2 class="section-title reveal">The anatomy of<br>a burned message.</h2>
+  <div class="protocol-steps">
+    <div class="step reveal" data-n="01"><div class="step-title">Key Generation</div><div class="step-desc">Your device generates a Curve25519 key pair at registration. The private key never leaves your phone.</div></div>
+    <div class="step reveal" data-n="02"><div class="step-title">Blind Transmission</div><div class="step-desc">Only the destination is visible to the server. No sender field. The payload is encrypted — opaque to everyone else.</div></div>
+    <div class="step reveal" data-n="03"><div class="step-title">Push & Forget</div><div class="step-desc">The server pushes the encrypted payload and forgets it. No storage. No logs. No record of what was sent.</div></div>
+    <div class="step reveal" data-n="04"><div class="step-title">Decrypt & Burn</div><div class="step-desc">The recipient decrypts locally. The timer starts. When it expires — the message is gone. Only ash.</div></div>
+  </div>
+</div>
 
-  <div class="footer" style="margin-top:24px">
-    <p>Ember Project · Romania · 2026</p>
-    <p style="margin-top:8px">
-      <a href="privacy.html">Privacy Policy</a> ·
-      <a href="terms.html">Terms of Use</a> ·
-      <a href="index.html">Home</a>
+<div class="section-wrap" id="security" style="border-top:1px solid var(--border);padding-top:6rem">
+  <p class="section-eyebrow reveal">Comparison</p>
+  <h2 class="section-title reveal">What others know<br>about you.</h2>
+  <p class="section-body reveal">Every column is a question the server can answer. Fewer answers means more privacy.</p>
+  <div class="matrix reveal">
+    <div class="matrix-row matrix-header">
+      <div class="matrix-cell"></div>
+      <div class="matrix-cell">Ember</div>
+      <div class="matrix-cell">Signal</div>
+      <div class="matrix-cell">WhatsApp</div>
+    </div>
+    <div class="matrix-row"><div class="matrix-cell feature-name">No phone number required</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
+    <div class="matrix-row"><div class="matrix-cell feature-name">Sealed Sender</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="partial">Partial</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
+    <div class="matrix-row"><div class="matrix-cell feature-name">Timer from reception</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
+    <div class="matrix-row"><div class="matrix-cell feature-name">Decoy password</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
+    <div class="matrix-row"><div class="matrix-cell feature-name">Shake to wipe</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
+    <div class="matrix-row"><div class="matrix-cell feature-name">Zero messages stored server-side</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
+  </div>
+</div>
+
+<div id="download">
+  <div class="dl-glow"></div>
+  <div class="dl-inner">
+    <div class="version-badge reveal">Android · v1.0.4 · arm64 · 46MB</div>
+    <h2 class="dl-title reveal">Ready to burn?</h2>
+    <p class="dl-sub reveal">Direct APK install. No Google account. No tracking.<br>Enable "Install from unknown sources" in Android settings.</p>
+    <div class="reveal">
+      <a href="https://raw.githubusercontent.com/Ember-apk/ember-legal/main/app-arm64-v8a-release.apk" class="btn-primary" style="font-size:.75rem;padding:1.1rem 3rem">Download APK v1.0.4</a>
+    </div>
+    <p class="dl-note reveal">
+      <a href="https://ember-legal.netlify.app/privacy.html">Privacy Policy</a> ·
+      <a href="https://ember-legal.netlify.app/terms.html">Terms of Use</a> ·
+      <a href="ember_security_whitepaper.pdf">Security Whitepaper</a>
     </p>
   </div>
+</div>
 
+<footer>
+  <div class="footer-logo">🔥 EMBER</div>
+  <ul class="footer-links">
+    <li><a href="https://ember-legal.netlify.app/privacy.html" target="_blank">Privacy</a></li>
+    <li><a href="https://ember-legal.netlify.app/terms.html" target="_blank">Terms</a></li>
+    <li><a href="#download">Download</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Ember Team · Beta</div>
+</footer>
+
+<script>
+const canvas=document.getElementById('vortex');
+const ctx=canvas.getContext('2d');
+let W,H,CX,CY;
+function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;CX=W/2;CY=H/2}
+resize();window.addEventListener('resize',resize);
+
+const PAL=[[255,106,0],[255,61,0],[255,179,71],[139,92,246],[56,189,248],[224,64,251],[255,200,100]];
+function rc(){return PAL[Math.floor(Math.random()*PAL.length)]}
+function lerp(a,b,t){return a.map((v,i)=>Math.round(v+(b[i]-v)*t))}
+
+class ArmParticle{
+  constructor(){this.reset()}
+  reset(){
+    this.arm=Math.floor(Math.random()*6);
+    this.r=Math.random()*0.04+0.01;
+    this.maxR=0.32+Math.random()*0.22;
+    this.speed=0.00175+Math.random()*0.0025;
+    this.color=rc();this.colorB=rc();
+    this.size=1+Math.random()*2.8;
+    this.alpha=0.65+Math.random()*0.35;
+    this.z=0.15+Math.random()*0.85;
+    this.trail=[];
+    this.trailLen=Math.floor(10+Math.random()*22);
+    this.tilt=(Math.random()-0.5)*0.5;
+    this.wobble=Math.random()*Math.PI*2;
+  }
+  update(t){
+    this.r+=this.speed;
+    if(this.r>this.maxR){this.reset();return}
+    const base=(Math.PI*2*this.arm)/6;
+    const angle=base+this.r*20+t*0.00035+Math.sin(this.wobble+t*0.002)*0.15;
+    const sc=Math.min(W,H)*0.5;
+    const d=0.3+this.z*0.7;
+    const yc=0.38+this.tilt*this.r*4;
+    const x=CX+Math.cos(angle)*this.r*sc*d;
+    const y=CY+Math.sin(angle)*this.r*sc*d*yc;
+    this.trail.push({x,y});
+    if(this.trail.length>this.trailLen)this.trail.shift();
+  }
+  draw(t){
+    if(this.trail.length<2)return;
+    const prog=this.r/this.maxR;
+    const col=lerp(this.color,this.colorB,prog);
+    for(let i=1;i<this.trail.length;i++){
+      const p=i/this.trail.length;
+      const a=p*this.alpha*(1-prog*0.25);
+      ctx.beginPath();
+      ctx.moveTo(this.trail[i-1].x,this.trail[i-1].y);
+      ctx.lineTo(this.trail[i].x,this.trail[i].y);
+      ctx.strokeStyle=`rgba(${col.join(',')},${a})`;
+      ctx.lineWidth=p*this.size*this.z;
+      ctx.lineCap='round';ctx.stroke();
+    }
+    const h=this.trail[this.trail.length-1];
+    const gr=ctx.createRadialGradient(h.x,h.y,0,h.x,h.y,this.size*5*this.z);
+    gr.addColorStop(0,`rgba(${col.join(',')},${this.alpha})`);
+    gr.addColorStop(1,`rgba(${col.join(',')},0)`);
+    ctx.beginPath();ctx.arc(h.x,h.y,this.size*5*this.z,0,Math.PI*2);ctx.fillStyle=gr;ctx.fill();
+    ctx.beginPath();ctx.arc(h.x,h.y,this.size*0.5*this.z,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${this.alpha*this.z})`;ctx.fill();
+  }
+}
+
+class FreeParticle{
+  constructor(){this.reset(true)}
+  reset(init=false){
+    const ang=Math.random()*Math.PI*2;
+    const dist=init?Math.random()*0.45:0.01+Math.random()*0.05;
+    const sc=Math.min(W,H)*0.5;
+    this.x=CX+Math.cos(ang)*dist*sc;
+    this.y=CY+Math.sin(ang)*dist*sc*(0.3+Math.random()*0.3);
+    const sp=0.6+Math.random()*2.8;
+    const tan=ang+Math.PI/2+(Math.random()-0.5)*1.4;
+    this.vx=Math.cos(ang)*sp*0.5+Math.cos(tan)*sp*0.9;
+    this.vy=Math.sin(ang)*sp*0.2+Math.sin(tan)*sp*0.45;
+    this.life=1;this.decay=0.006+Math.random()*0.018;
+    this.color=rc();this.size=0.7+Math.random()*2.2;
+    this.trail=[];this.trailLen=Math.floor(4+Math.random()*14);
+  }
+  update(){
+    this.x+=this.vx;this.y+=this.vy;
+    this.vx*=0.993;this.vy*=0.993;
+    this.life-=this.decay;
+    this.trail.push({x:this.x,y:this.y});
+    if(this.trail.length>this.trailLen)this.trail.shift();
+    if(this.life<=0)this.reset();
+  }
+  draw(){
+    if(this.trail.length<2)return;
+    const col=this.color;
+    for(let i=1;i<this.trail.length;i++){
+      const p=i/this.trail.length;
+      ctx.beginPath();ctx.moveTo(this.trail[i-1].x,this.trail[i-1].y);ctx.lineTo(this.trail[i].x,this.trail[i].y);
+      ctx.strokeStyle=`rgba(${col.join(',')},${p*this.life*0.85})`;
+      ctx.lineWidth=p*this.size;ctx.lineCap='round';ctx.stroke();
+    }
+    ctx.beginPath();ctx.arc(this.x,this.y,this.size*0.45,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${this.life*0.75})`;ctx.fill();
+  }
+}
+
+class Ring{
+  constructor(rf,ty,speed,col,lw,dash){
+    this.rf=rf;this.ty=ty;this.speed=speed;this.col=col;this.lw=lw;this.dash=dash;
+    this.angle=Math.random()*Math.PI*2;this.sp=Math.random()*Math.PI*2;
+  }
+  draw(t){
+    const sc=Math.min(W,H)*0.5;const r=this.rf*sc;
+    this.angle+=this.speed;
+    const shim=0.12+0.09*Math.sin(t*0.0018+this.sp);
+    const[a,b,c]=this.col;
+    ctx.save();ctx.translate(CX,CY);ctx.rotate(this.angle);ctx.scale(1,this.ty);
+    ctx.beginPath();ctx.ellipse(0,0,r,r,0,0,Math.PI*2);
+    ctx.strokeStyle=`rgba(${a},${b},${c},${shim})`;ctx.lineWidth=this.lw;
+    if(this.dash)ctx.setLineDash([10,7]);else ctx.setLineDash([]);
+    ctx.stroke();ctx.setLineDash([]);
+    const sl=0.35+0.2*Math.sin(t*0.0025+this.sp);
+    ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*sl*0.5);
+    ctx.strokeStyle=`rgba(${a},${b},${c},${shim*3.5})`;ctx.lineWidth=this.lw*2.2;ctx.stroke();
+    ctx.restore();
+  }
+}
+
+function eye(t){
+  const p=0.88+0.14*Math.sin(t*0.0014);
+  const r=Math.min(W,H)*0.046*p;
+  const layers=[
+    {r:r*9,a:0.018,c:[139,92,246]},
+    {r:r*6,a:0.03,c:[224,64,251]},
+    {r:r*4,a:0.055,c:[255,106,0]},
+    {r:r*2.5,a:0.1,c:[255,179,71]},
+    {r:r*1.5,a:0.2,c:[255,220,160]},
+  ];
+  for(const l of layers){
+    const g=ctx.createRadialGradient(CX,CY,0,CX,CY,l.r);
+    g.addColorStop(0,`rgba(${l.c.join(',')},${l.a})`);g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(CX,CY,l.r,0,Math.PI*2);ctx.fill();
+  }
+  const cg=ctx.createRadialGradient(CX,CY,0,CX,CY,r);
+  cg.addColorStop(0,'#ffffff');cg.addColorStop(0.2,'#FFE0A0');cg.addColorStop(0.5,'#FF6A00');
+  cg.addColorStop(0.75,'#8B5CF6');cg.addColorStop(1,'rgba(139,92,246,0)');
+  ctx.beginPath();ctx.arc(CX,CY,r,0,Math.PI*2);ctx.fillStyle=cg;ctx.fill();
+  // rotating spokes
+  for(let i=0;i<6;i++){
+    const a=(Math.PI*2*i)/6+t*0.00055;
+    const len=r*3;
+    const g2=ctx.createLinearGradient(CX,CY,CX+Math.cos(a)*len,CY+Math.sin(a)*len);
+    g2.addColorStop(0,'rgba(255,179,71,0.55)');g2.addColorStop(1,'rgba(139,92,246,0)');
+    ctx.beginPath();ctx.moveTo(CX,CY);ctx.lineTo(CX+Math.cos(a)*len,CY+Math.sin(a)*len);
+    ctx.strokeStyle=g2;ctx.lineWidth=0.9;ctx.stroke();
+  }
+}
+
+const arms=Array.from({length:260},()=>new ArmParticle()).sort((a,b)=>a.z-b.z);
+const frees=Array.from({length:200},()=>new FreeParticle());
+const rings=[
+  new Ring(0.12,0.25, 0.0045,[255,106,0],1.4,false),
+  new Ring(0.19,0.20,-0.003,[139,92,246],1.0,true),
+  new Ring(0.26,0.16, 0.0025,[255,179,71],0.7,false),
+  new Ring(0.33,0.28,-0.002,[56,189,248],0.55,true),
+  new Ring(0.41,0.14, 0.0015,[224,64,251],0.45,false),
+  new Ring(0.49,0.22,-0.00125,[255,106,0],0.35,true),
+  new Ring(0.58,0.11, 0.001,[139,92,246],0.27,false),
+  new Ring(0.68,0.18,-0.00075,[56,189,248],0.2,true),
+];
+
+let t=0;
+function frame(){
+  ctx.fillStyle='rgba(3,2,10,0.18)';ctx.fillRect(0,0,W,H);
+  const nb=ctx.createRadialGradient(CX,CY,0,CX,CY,Math.min(W,H)*0.65);
+  nb.addColorStop(0,'rgba(35,5,70,0.05)');nb.addColorStop(0.5,'rgba(70,5,25,0.03)');nb.addColorStop(1,'rgba(0,0,0,0)');
+  ctx.fillStyle=nb;ctx.fillRect(0,0,W,H);
+  rings.forEach(r=>r.draw(t));
+  arms.forEach(p=>{p.update(t);p.draw(t)});
+  frees.forEach(p=>{p.update();p.draw()});
+  eye(t);
+  t++;requestAnimationFrame(frame);
+}
+frame();
+
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
