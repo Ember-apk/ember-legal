@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ember — Messages That Burn</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="fonts/fonts.css" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--orange:#FF6A00;--red:#FF3D00;--gold:#FFB347;--violet:#8B5CF6;--blue:#38bdf8;--magenta:#E040FB;--white:#ffffff;--dim:rgba(255,255,255,0.5);--bg:#03020a;--border:rgba(255,106,0,0.12)}
@@ -15,7 +15,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--orange)}
-#hero{position:relative;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+#hero{position:relative;min-height:42vh;padding:6rem 1rem 4.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
 #vortex{position:absolute;top:0;left:0;width:100%;height:100%}
 .hero-content{position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem}
 .hero-label{font-size:.6rem;letter-spacing:.5em;color:var(--orange);text-transform:uppercase;border:1px solid rgba(255,106,0,.3);padding:.4rem 1.2rem;border-radius:2px;backdrop-filter:blur(4px);background:rgba(3,2,10,.4)}
@@ -62,12 +62,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .matrix-cell.ember-col{color:var(--orange);font-weight:700}
 .matrix-cell.other-col{color:var(--dim)}
 .check{color:var(--orange)}.cross{color:rgba(255,255,255,.15)}.partial{color:var(--gold)}
-#download{position:relative;border-top:1px solid var(--border);text-align:center;padding:7rem 3rem;overflow:hidden}
+#download{position:relative;border-top:1px solid var(--border);text-align:center;padding:3rem 3rem 3.5rem;overflow:hidden}
 .dl-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(139,92,246,.07) 0%,rgba(255,106,0,.05) 40%,transparent 70%);pointer-events:none}
 .dl-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
-.version-badge{display:inline-block;margin-bottom:2rem;font-size:.58rem;letter-spacing:.3em;color:var(--violet);text-transform:uppercase;border:1px solid rgba(139,92,246,.3);padding:.3rem .9rem}
+.version-badge{display:inline-block;margin-bottom:1.2rem;font-size:.58rem;letter-spacing:.3em;color:var(--violet);text-transform:uppercase;border:1px solid rgba(139,92,246,.3);padding:.3rem .9rem}
 .dl-title{font-family:'Orbitron';font-size:clamp(1.8rem,4vw,3.5rem);font-weight:900;letter-spacing:.1em;margin-bottom:1rem;background:linear-gradient(135deg,#FF6A00,#E040FB,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.dl-sub{font-size:.78rem;line-height:1.8;color:var(--dim);margin-bottom:2.5rem}
+.dl-sub{font-size:.78rem;line-height:1.8;color:var(--dim);margin-bottom:1.8rem}
 .dl-note{margin-top:1.5rem;font-size:.6rem;line-height:1.7;color:rgba(255,255,255,.18)}
 .dl-note a{color:rgba(139,92,246,.6);text-decoration:none}
 .dl-note a:hover{color:var(--violet)}
@@ -96,7 +96,7 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify
 
 <section id="hero">
   <canvas id="vortex"></canvas>
-  <div class="hero-content" style="position:absolute;top:5rem;left:50%;transform:translateX(-50%);width:100%;text-align:center;z-index:2;">
+  <div class="hero-content" style="position:relative;width:100%;text-align:center;z-index:2;">
     <h1 class="hero-title">EMBER</h1>
     <p class="hero-tagline">Messages That Burn</p>
   </div>
@@ -106,12 +106,29 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify
   </div>
 </section>
 
+<div id="download">
+  <div class="dl-glow"></div>
+  <div class="dl-inner">
+    <div class="version-badge reveal">Android · v1.1.7 · arm64 · 46MB</div>
+    <h2 class="dl-title reveal">Ready to burn?</h2>
+    <p class="dl-sub reveal">Direct APK install. No Google account. No tracking.<br>Enable "Install from unknown sources" in Android settings.</p>
+    <div class="reveal">
+      <a href="https://raw.githubusercontent.com/Ember-apk/ember-legal/main/app-arm64-v8a-release.apk" class="btn-primary" style="font-size:.75rem;padding:1.1rem 3rem">Download APK v1.1.7</a>
+    </div>
+    <p class="dl-note reveal">
+      <a href="https://ember-legal.netlify.app/privacy.html">Privacy Policy</a> ·
+      <a href="https://ember-legal.netlify.app/terms.html">Terms of Use</a> ·
+      <a href="ember_security_whitepaper.pdf">Security Whitepaper</a>
+    </p>
+  </div>
+</div>
+
 <div class="stats-bar">
   <div class="stat"><span class="stat-value">E2E</span><span class="stat-label">Encrypted</span></div>
   <div class="stat"><span class="stat-value">0</span><span class="stat-label">Messages stored</span></div>
   <div class="stat"><span class="stat-value">∅</span><span class="stat-label">Phone required</span></div>
   <div class="stat"><span class="stat-value">EU</span><span class="stat-label">Server location</span></div>
-  <div class="stat"><span class="stat-value">0</span><span class="stat-label">Identifiers collected</span></div>
+  <div class="stat"><span class="stat-value">24h</span><span class="stat-label">Key rotation</span></div>
 </div>
 
 <div class="section-wrap" id="features">
@@ -119,12 +136,15 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify
   <h2 class="section-title reveal">Built different.<br>By design.</h2>
   <p class="section-body reveal">Every decision in Ember was made to minimize what the server knows. Not as a feature. As a foundation.</p>
   <div class="features-grid">
-    <div class="feature-card reveal"><span class="feature-icon">⛓</span><div class="feature-title">Sealed Sender</div><div class="feature-desc">The server routes your message without knowing who sent it. No sender field. No social graph. No metadata linking you to the recipient.</div><span class="feature-tag">Architecture</span></div>
+    <div class="feature-card reveal"><span class="feature-icon">⛓</span><div class="feature-title">Sealed Sender</div><div class="feature-desc">The server routes your message without a sender field. Who you are travels inside the encrypted payload, where only the recipient can read it.</div><span class="feature-tag">Architecture</span></div>
     <div class="feature-card reveal"><span class="feature-icon">🔑</span><div class="feature-title">No Phone Number</div><div class="feature-desc">Registration requires nothing real — no number, no email, no identity. A username prefix you choose. A random suffix the server generates.</div><span class="feature-tag">Identity</span></div>
-    <div class="feature-card reveal"><span class="feature-icon">🔥</span><div class="feature-title">Messages That Burn</div><div class="feature-desc">Timer starts at reception, not at reading. Your message doesn't wait. When the clock runs out, only ash remains.</div><span class="feature-tag">Ephemeral</span></div>
+    <div class="feature-card reveal"><span class="feature-icon">🔥</span><div class="feature-title">Messages That Burn</div><div class="feature-desc">The sender sets how long a message lives, and the clock starts when it arrives — not when it is read. Opened or not, it is destroyed on time.</div><span class="feature-tag">Ephemeral</span></div>
     <div class="feature-card reveal"><span class="feature-icon">🎭</span><div class="feature-title">Decoy Password</div><div class="feature-desc">A second password that opens a shadow account — empty, real-looking, indistinguishable. For when unlocking isn't a choice.</div><span class="feature-tag">Duress Protection</span></div>
     <div class="feature-card reveal"><span class="feature-icon">💥</span><div class="feature-title">Shake to Wipe</div><div class="feature-desc">One shake. Sessions cleared. Messages erased. Biometrics deleted. Notifications dismissed. Your phone, blank and safe, in under a second.</div><span class="feature-tag">Emergency</span></div>
     <div class="feature-card reveal"><span class="feature-icon">🛡</span><div class="feature-title">Screenshot Blocked</div><div class="feature-desc">Android FLAG_SECURE active globally. No digital capture. No screen recording. No traces in your recent apps thumbnail.</div><span class="feature-tag">OS-Level</span></div>
+    <div class="feature-card reveal"><span class="feature-icon">♻</span><div class="feature-title">Keys That Expire</div><div class="feature-desc">Your encryption key is replaced every twenty-four hours, signed so your contacts accept it without a word. A stolen key stops working on its own.</div><span class="feature-tag">Key Rotation</span></div>
+    <div class="feature-card reveal"><span class="feature-icon">✍</span><div class="feature-title">Signed Messages</div><div class="feature-desc">Every message carries a signature only you can produce. If it doesn't match, the app refuses to show a sender name — a stranger cannot arrive wearing someone's face.</div><span class="feature-tag">Authenticity</span></div>
+    <div class="feature-card reveal"><span class="feature-icon">▦</span><div class="feature-title">Verified In Person</div><div class="feature-desc">Scan a contact's code face to face and their identity is fixed on your phone. From then on, no server can quietly hand you someone else's key.</div><span class="feature-tag">Trust</span></div>
   </div>
 </div>
 
@@ -132,47 +152,39 @@ footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify
   <p class="section-eyebrow reveal">How It Works</p>
   <h2 class="section-title reveal">The anatomy of<br>a burned message.</h2>
   <div class="protocol-steps">
-    <div class="step reveal" data-n="01"><div class="step-title">Key Generation</div><div class="step-desc">Your device generates a Curve25519 key pair at registration. The private key never leaves your phone.</div></div>
-    <div class="step reveal" data-n="02"><div class="step-title">Blind Transmission</div><div class="step-desc">Only the destination is visible to the server. No sender field. The payload is encrypted — opaque to everyone else.</div></div>
-    <div class="step reveal" data-n="03"><div class="step-title">Push & Forget</div><div class="step-desc">The server pushes the encrypted payload and forgets it. No storage. No logs. No record of what was sent.</div></div>
-    <div class="step reveal" data-n="04"><div class="step-title">Decrypt & Burn</div><div class="step-desc">The recipient decrypts locally. The timer starts. When it expires — the message is gone. Only ash.</div></div>
+    <div class="step reveal" data-n="01"><div class="step-title">Key Generation</div><div class="step-desc">Your device generates its keys at registration. The private half never leaves the phone.</div></div>
+    <div class="step reveal" data-n="02"><div class="step-title">Signed, Then Sealed</div><div class="step-desc">Every message is signed with your identity key, then encrypted. The signature sits inside the ciphertext, so nobody on the way can see who wrote it.</div></div>
+    <div class="step reveal" data-n="03"><div class="step-title">Routed, Not Stored</div><div class="step-desc">The server checks the destination and delivers. It keeps no copy — there is no history to hand over. Delivery runs on Android's push service, which sees that a device received something, never what.</div></div>
+    <div class="step reveal" data-n="04"><div class="step-title">Decrypt &amp; Burn</div><div class="step-desc">The recipient decrypts locally. The timer, set by you, is already running. When it ends, only ash.</div></div>
   </div>
 </div>
 
 <div class="section-wrap" id="security" style="border-top:1px solid var(--border);padding-top:6rem">
-  <p class="section-eyebrow reveal">Comparison</p>
-  <h2 class="section-title reveal">What others know<br>about you.</h2>
-  <p class="section-body reveal">Every column is a question the server can answer. Fewer answers means more privacy.</p>
-  <div class="matrix reveal">
-    <div class="matrix-row matrix-header">
-      <div class="matrix-cell"></div>
-      <div class="matrix-cell">Ember</div>
-      <div class="matrix-cell">Signal</div>
-      <div class="matrix-cell">WhatsApp</div>
+  <p class="section-eyebrow reveal">Honest Summary</p>
+  <h2 class="section-title reveal">What Ember does.<br>And what it doesn't.</h2>
+  <p class="section-body reveal">Both columns matter. A security tool that lists only its strengths hasn't told you enough to rely on it.</p>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-title">What it does</div>
+      <div class="feature-desc" style="margin-bottom:.85rem">Works without a phone number, an email address, or a real name.</div>
+      <div class="feature-desc" style="margin-bottom:.85rem">Encrypts every message end to end. The keys are generated on your phone and never leave it.</div>
+      <div class="feature-desc" style="margin-bottom:.85rem">Signs every message, so a name cannot be faked. If a signature doesn't match, the sender is not shown.</div>
+      <div class="feature-desc" style="margin-bottom:.85rem">Lets you fix a contact's identity in person, by scanning a code. After that, the server cannot hand you someone else's key without the app refusing to send.</div>
+      <div class="feature-desc" style="margin-bottom:.85rem">Replaces your encryption key every twenty-four hours, automatically.</div>
+      <div class="feature-desc" style="margin-bottom:.85rem">Destroys messages at the sender's deadline, whether or not they were opened.</div>
+      <div class="feature-desc" style="margin-bottom:.85rem">Blocks screenshots and screen recording, everywhere in the app.</div>
+      <div class="feature-desc" style="margin-bottom:.85rem">Opens a second, empty account with a second password — for when unlocking isn't a choice.</div>
+      <div class="feature-desc">Erases sessions, messages and saved credentials when you shake the phone.</div>
+      <span class="feature-tag">Guarantees</span>
     </div>
-    <div class="matrix-row"><div class="matrix-cell feature-name">No phone number required</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
-    <div class="matrix-row"><div class="matrix-cell feature-name">Sealed Sender</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="partial">Partial</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
-    <div class="matrix-row"><div class="matrix-cell feature-name">Timer from reception</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
-    <div class="matrix-row"><div class="matrix-cell feature-name">Decoy password</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
-    <div class="matrix-row"><div class="matrix-cell feature-name">Shake to wipe</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
-    <div class="matrix-row"><div class="matrix-cell feature-name">Zero messages stored server-side</div><div class="matrix-cell ember-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="check">✓</span></div><div class="matrix-cell other-col"><span class="cross">✗</span></div></div>
-  </div>
-</div>
-
-<div id="download">
-  <div class="dl-glow"></div>
-  <div class="dl-inner">
-    <div class="version-badge reveal">Android · v1.1.0 · arm64 · 46MB</div>
-    <h2 class="dl-title reveal">Ready to burn?</h2>
-    <p class="dl-sub reveal">Direct APK install. No Google account. No tracking.<br>Enable "Install from unknown sources" in Android settings.</p>
-    <div class="reveal">
-      <a href="https://raw.githubusercontent.com/Ember-apk/ember-legal/main/app-arm64-v8a-release.apk" class="btn-primary" style="font-size:.75rem;padding:1.1rem 3rem">Download APK v1.1.0</a>
+    <div class="feature-card reveal">
+      <div class="feature-title">What it doesn't</div>
+      <div class="feature-desc" style="margin-bottom:.85rem"><strong>Hide that your phone received something.</strong> The delivery service sees timing, never content.</div>
+      <div class="feature-desc" style="margin-bottom:.85rem"><strong>Guarantee that every message arrives.</strong> Nothing is kept on the server, so nothing can be re-sent.</div>
+      <div class="feature-desc" style="margin-bottom:.85rem"><strong>Protect traffic recorded in the last day.</strong> Keys are replaced daily and old ones are deleted.</div>
+      <div class="feature-desc"><strong>Come with an independent review — yet.</strong></div>
+      <span class="feature-tag">Limits</span>
     </div>
-    <p class="dl-note reveal">
-      <a href="https://ember-legal.netlify.app/privacy.html">Privacy Policy</a> ·
-      <a href="https://ember-legal.netlify.app/terms.html">Terms of Use</a> ·
-      <a href="ember_security_whitepaper.pdf">Security Whitepaper</a>
-    </p>
   </div>
 </div>
 
